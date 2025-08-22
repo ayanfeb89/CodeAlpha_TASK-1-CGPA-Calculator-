@@ -30,8 +30,20 @@ int main()
             getline(cin,subject[i][j]);
             cout<<"Enter the Credit Hour of "<<subject[i][j]<<" of Semester "<<i+1<<": ";
             cin>>credit_hour[i][j];
-            cout<<"Enter the Grade of "<<subject[i][j]<<" of Semester "<<i+1<<": ";
+            if(credit_hour[i][j]<=0)
+            {
+                cout<<"Error, credit hour can be 0 or less than 0"<<endl;
+                cout<<"Enter the Credit Hour of "<<subject[i][j]<<" of Semester "<<i+1<<": ";
+                cin>>credit_hour[i][j];
+            }
+            cout<<"Enter the Grade of "<<subject[i][j]<<" of Semester "<<i+1<<"i.e(0-4)"<<": ";
             cin>>grades[i][j];
+            if(grade[i][j]<0 && grade[i][j]>4)
+            {
+                cout<<"Error, Enter grade in between 0 to 4"<<endl;
+                cout<<"Enter the Grade of "<<subject[i][j]<<" of Semester "<<i+1<<"i.e(0-4)"<<": ";
+                cin>>grades[i][j];
+            }
             total_credit_hour+=credit_hour[i][j];
             total_grades+=grades[i][j]*credit_hour[i][j];
         }
@@ -52,4 +64,8 @@ cout<<endl;
 }
 cout<<"Your Overall CGPA is-> "<<grades_all/credit_hour_all<<endl;
 }
+
+cout<<"Your Overall CGPA is-> "<<grades_all/credit_hour_all<<endl;
+}
+
 
